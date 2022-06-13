@@ -1,35 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="icon" type="img/png" sizes="32x32" href="img/favicon-32x32.png"/>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  
-  <title>To-do app</title>
+      <title>To-do app</title>
+   </head>
+   <body class="preload-transitions" data-theme="darkTheme">
+      <div class="main__container">
+         <div class="todo">
+            <header class="header">
+               <section class="logo">
+                  <h2 class="logo__title">TODO</h2>
+                  <button class="btn btn--theme" id="theme-toggle">
+                     <img class="todo__elem--hide" src="./img/icon-moon.svg" alt="apply dark mode" />
+                     <img  src="./img/icon-sun.svg" alt="apply light mode" />
+                  </button>
+               </section>
+               <div class="todo__header">
+                  <div class="todo__circle">
+                  </div>
+                  <label for="todo-input">Create a new todo</label>
+                  <input type="text" class="todo__input" name="todo-input"id="todo-input" placeholder="Create a new todo..." />
+               </div>
+            </header>
 
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+            <main class="main">
+               <ul class="todo__list" id="todo-list">
+                  
+               </ul>
+               <div class="todo__filters">
+                  <div class="todo__filters__sides">
+                     <p class="btn"><span id="items-left">1</span> item(s) left</p>
+                     <button class="btn btn--clear" id="clear-completed">Clear Completed</button>
+                  </div>
+                  <div class="todo__filters__center">
+                     
+                        <input type="radio" name="filter" id="all" value="all" class="btn btn--bold" checked>
+                        <label  class="btn btn--bold" for="all">All</label>
+                     
+                        <input type="radio" name="filter" id="active" value="active" class="btn btn--bold">
+                        <label class="btn btn--bold" for="active">Active</label>
+                     
+                        <input type="radio" name="filter" id="completed" value="completed" class="btn btn--bold">
+                        <label class="btn btn--bold" for="completed">Completed</label>
+               </div>
+               </div>
+            </main>
 
-  Todo
-
-  items left
-
-  All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/Isha2103">Isha Gupta</a>.
-  </div>
-</body>
+            <footer>
+              <div class="attribution">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+                Coded by <a href="https://github.com/Isha2103">Isha Gupta</a>.
+              </div>
+            </footer>
+         </div>
+      </div>
+      <script>
+         document.addEventListener("DOMContentLoaded",function(){
+           let node = document.querySelector('.preload-transitions');
+           node.classList.remove('preload-transitions');
+         });
+       </script>
+      <script src="script.js"></script>
+   </body>
 </html>
