@@ -14,14 +14,17 @@
 
 ### Screenshot
 
-![](./screenshot.jpg)
+#### Light Mode View
+![](./result_images/light_mode.png)
+#### Dark Mode View
+![](./result_images/dark_mode.png)
 
 
 
 ### Links
 
 - [Solution URL](https://github.com/Isha2103/To-do-App)
-- [Live Site URL](https://your-live-site-url.com)
+- [Live Site URL]( https://isha2103.github.io/To-do-App/)
 
 
 ### Built with

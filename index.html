@@ -5,10 +5,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="style.css" />
       <link rel="icon" type="img/png" sizes="32x32" href="img/favicon-32x32.png"/>
-
       <title>To-do app</title>
    </head>
-   <body class="preload-transitions" data-theme="darkTheme">
+
+   <body data-theme="darkTheme">
       <div class="main__container">
          <div class="todo">
             <header class="header">
@@ -33,7 +33,7 @@
                </ul>
                <div class="todo__filters">
                   <div class="todo__filters__sides">
-                     <p class="btn"><span id="items-left">1</span> item(s) left</p>
+                     <p class="btn"><span id="items-left">0</span> item(s) left</p>
                      <button class="btn btn--clear" id="clear-completed">Clear Completed</button>
                   </div>
                   <div class="todo__filters__center">
@@ -52,18 +52,13 @@
 
             <footer>
               <div class="attribution">
-                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-                Coded by <a href="https://github.com/Isha2103">Isha Gupta</a>.
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>, 
+                Coded by <a href="https://github.com/Isha2103" target="_blank">Isha Gupta</a>.
               </div>
             </footer>
          </div>
       </div>
-      <script>
-         document.addEventListener("DOMContentLoaded",function(){
-           let node = document.querySelector('.preload-transitions');
-           node.classList.remove('preload-transitions');
-         });
-       </script>
       <script src="script.js"></script>
    </body>
+
 </html>
