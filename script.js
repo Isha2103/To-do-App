@@ -8,8 +8,6 @@ const todoList = document.getElementById("todo-list");
 const itemsLeft = document.getElementById("items-left");
 const todoFilters = document.querySelectorAll("input[name='filter']");
 const btnClear = document.getElementById('clear-completed');
-
-
 const themeSwitch = document.getElementById('theme-toggle');
 const themeLogos = document.querySelectorAll('.btn--theme img');
 

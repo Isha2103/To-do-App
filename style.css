@@ -157,7 +157,7 @@ p.btn:hover {
    border: 1px solid #393A4B;
 }
 
-.todo__input, todo__input::-webkit-input-placeholder {
+.todo__input {
    font-size: 1.8rem;
    border: none;
    font-family: inherit;
