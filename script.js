@@ -1,7 +1,6 @@
 let todoArray = [];
 let todoId = 0;
 let currentFilter = 'all';
-const LOCAL_TODOS = "local_todos";
 
 const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
@@ -15,7 +14,7 @@ const themeLogos = document.querySelectorAll('.btn--theme img');
 btnClear.addEventListener('click', () => {
    const toRemove = todoArray.filter((obj) => obj.active === false);
 
-   if (toRemove.length > 0 &&  confirm(`You are about to remove ${toRemove.length} completed task. Are  you sure?`)) {
+   if (toRemove.length > 0 &&  confirm(`You are about to remove ${toRemove.length} completed task. Are you sure?`)) {
       toRemove.forEach((elem) => {
          removeElem(elem.DOMelem);
       });
@@ -118,37 +117,6 @@ function updateCurrentId() {
    }
 }
 
-
-function getLocalStorage() {
-
-   if (localStorage.getItem(LOCAL_TODOS) === null) {
-      localStorage.setItem(LOCAL_TODOS, JSON.stringify([]));
-   } else if (JSON.parse(localStorage.getItem(LOCAL_TODOS)).length) {
-      todoArray = JSON.parse(localStorage.getItem(LOCAL_TODOS));
-      todoArray.forEach((todoElem) => {
-         if (todoId < +todoElem.id) todoId = +todoElem.id;
-         addTodoElem(todoElem.content, false);
-      });
-      todoId++;
-   }
-
-   updateActiveCount();
-}
-
-function updateLocalStorage() {
-   localStorage.setItem(LOCAL_TODOS, JSON.stringify(todoArray));
-}
-
-function removeFromStorage(id) {
-   todoArray = todoArray.filter((todoObj) => {
-      return todoObj.id !== +id;
-   });
-
-   updateLocalStorage();
-}
-
-
-
 function changeActiveStatus(elem) {
    elem.classList.toggle("todo__elem--checked");
    let isActive = true;
@@ -161,15 +129,10 @@ function changeActiveStatus(elem) {
    todoArray.forEach((arrayObj) => {
       if (arrayObj.id === +elem.id) arrayObj.active = isActive;
    });
-   
-   
-   updateLocalStorage();
-   updateActiveCount();
 }
 
 function removeElem(element) {
    removeElemfromDom(element);
-   removeFromStorage(+element.id);
    updateCurrentId();
    updateActiveCount();
    refreshFilters();
@@ -199,7 +162,6 @@ function addTodoElem(todoText, isNew = true) {
          DOMelem: todoEl,
          id: todoId++,
       });
-      updateLocalStorage();
    } else {
       todoArray.forEach((arrayObj) => {
          if (arrayObj.id === todoId  ) {
@@ -234,20 +196,7 @@ function addTodoElem(todoText, isNew = true) {
 
 
 function init() {
-   const starterList = [
-      "Start your day with gym"
-   ];
-
-   if (localStorage.getItem("isFirstVisit") === null || localStorage.getItem("isFirstVisit") === false){
-      localStorage.setItem("isFirstVisit", true);
-      starterList.forEach((item) => {
-         addTodoElem(item);
-      });
-      changeActiveStatus(todoArray[0].DOMelem);
-   }
-   else {
-      getLocalStorage();
-   }
+   const starterList = [];
 }
 
 init();
